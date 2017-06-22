@@ -1,0 +1,13 @@
+		MOV		r0, #3	;r0 is current number
+		MOV		r1, #0	;r1 is count of number of iterations
+		
+again	ADD		r1, r1, #1	;increment number of iterations
+		ANDS		r7, r0, #1	;test whether r0 is odd;
+		BEQ		even
+		ADD		r0, r0, r0, LSL #1	;if odd, set r0 = ro + (ro<<1) + 1
+		ADD		r0, r0, #1
+		B		again	;and repeat (guaranteed r0 > 1)
+even		MOV		r0, r0, ASR #1	;if even, set r0 = r0 >> 1
+		SUBS		r7, r0, #1	;and repeat if r0 != 1
+		BNE		again
+halt		END		;stop computation
