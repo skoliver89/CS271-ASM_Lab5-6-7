@@ -1,0 +1,12 @@
+		MOV		r0, #1		;current number
+		MOV		r1, #1		;previous number
+		MOV		r2, #2		;counter for looping
+		MOV		r3, #25		;number of figures to calculate
+		
+fib		MOV		r4, r0		;temp storage for moving previous fib number
+		ADD		r0, r0, r1 	;calc next fib number
+		MOV		r1, r4		;move prev. fib number from temp memory
+		ADD		r2, r2, #1	;add one to counter
+		CMP		r2, r3		;check to see if caculated last desired figure
+		BNE		fib			;if not go again.
+		END					;if caclulated last figure, terminate

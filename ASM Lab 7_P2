@@ -1,0 +1,19 @@
+		MOV		r1, #34	;N1
+		MOV		r2, #54	;N2
+		MOV		r3, #21	;N3
+		
+		CMP		r1, r2
+		BCS		greater1
+		
+		CMP		r3, r2
+		BCS		greater2
+		MOV		r4, r2
+		END
+		
+greater1	CMP		r3, r1
+		BCS		greater2
+		MOV		r4, r1
+		END
+		
+greater2	MOV		r4, r3
+		END
